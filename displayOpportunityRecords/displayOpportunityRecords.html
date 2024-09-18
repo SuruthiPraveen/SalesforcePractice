@@ -1,0 +1,26 @@
+<template>
+    
+    <lightning-card title="Display Opportunity Records">
+        <div class="slds-m-around_medium">
+            <lightning-input type="text" label="Search" value={searchKey} onchange={handleSearch} placeholder="Type here to search opportunities"></lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <div class="slds-var-m-around_medium">
+                <c-custom-data-type key-field="Id" 
+                columns={columnList} 
+                data={oppPageList}  
+                onsave={handleSave}
+                draft-values={draftValues}
+                hide-checkbox-column="true"
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={handleSort}>
+                </c-custom-data-type>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <p class="slds-m-around_medium">{startingRecord} to {endingRecord} of {totalRecordCount}. page {page} of {totalPage} </p>
+            <c-paginator-component onprevious={prevHandler} onnext={nextHandler}></c-paginator-component>
+        </div>
+    </lightning-card>
+</template> 

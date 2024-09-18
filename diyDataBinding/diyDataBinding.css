@@ -1,0 +1,12 @@
+.fontBold{
+    font-style: bold;
+    color: aqua;
+}
+
+.fontItalic{
+    font-style: italic;
+    color: blueviolet;
+}   
+.backBlue{
+    background-color: blue;
+}

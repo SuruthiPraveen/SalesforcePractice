@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Component">
+        <div class="slds-var-m-around_medium slds-align_absolute-center slds-box">
+    <lightning-button class="slds-var-p-around_small" label="Start" onclick={handleClick} variant="Success"></lightning-button>
+    <lightning-button class="slds-var-p-around_small" label="Stop" onclick={handleClick} variant="destructive"></lightning-button>
+    <lightning-button class="slds-var-p-around_small" label="Reset" onclick={handleClick} variant="brand"></lightning-button>
+</div>
+<c-child-timer-component clicked={clicked}></c-child-timer-component>
+</lightning-card>
+</template>

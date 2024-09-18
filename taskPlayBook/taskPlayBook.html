@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Task Playbook">
+        <lightning-accordion active-section-name="Task Playbook">
+            <template for:each={sections} for:item="section">
+                <lightning-accordion-section label={section.title} key={section.id}>
+                    <div class="slds-var-m-around_medium">
+                    <template for:each={section.steps} for:item="step">
+                        <lightning-button label={step.label} key={section.title} name={section.title} class="slds-var-p-around_medium" variant="brand" onclick={handleClick}></lightning-button>
+                    </template>
+                    <div class="slds-var-m-around_medium">
+                    <br><b>Percentage of Task Completed:</b>{section.percentageTask}</div>
+                </div>
+                </lightning-accordion-section>
+            </template>
+            <template lwc:if={showTable}>
+            <div class="slds-var-m-around_medium">
+                <lightning-datatable key-field="Id" columns={columnList} data={quoteData} show-row-number-column="true" onrowselection={handleSelect}></lightning-datatable>
+                <div class="slds-var-m-around_medium">
+                <lightning-button label="Send Quote" variant="brand" onclick={handleQuoteClick}></lightning-button></div>
+            </div>
+        </template>
+            <template lwc:if={openLogaCallorText}>
+                <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_medium">
+                    <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">{sendCallOrText.Title}</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-input type="text" label="Comments" value={sendCallOrText.Comments} onchange={handleCallOrTextChange}></lightning-input>
+                    <lightning-input type="checkbox" label="IsCompleted" value={sendCallOrText.IsCompleted} onchange={handleCallOrTextChange}></lightning-input>
+                    </div>
+                    <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleClose}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={handlesendCallOrTextSave}>Save</button>
+                    </div>
+                    </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+            </template>
+            <template lwc:if={openSendEmail}>
+                <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02" class="slds-modal slds-fade-in-open slds-modal_medium">
+                    <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                    <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">{sendEmail.Title}</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <lightning-input type="text" label="To Address" value={sendEmail.toAddress} onchange={handleEmailChange}></lightning-input>
+                    <lightning-input type="text" label="Subject" value={sendEmail.subject} onchange={handleEmailChange}></lightning-input>
+                    <lightning-input-rich-text type="text " label="Body" value={sendEmail.body} onchange={handleEmailChange}></lightning-input-rich-text>
+                    </div>
+                    <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleClose}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={handlesendEmailSave}>Save</button>
+                    </div>
+                    </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+            </template>
+        </lightning-accordion>
+    </lightning-card>
+</template>

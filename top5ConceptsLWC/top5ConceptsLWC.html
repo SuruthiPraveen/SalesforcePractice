@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Master LWC with Top 5 Concepts">
+        
+        <template iterator:it={lwcConcept}>
+            <div key={it.value.topics}>
+                <template lwc:if={it.first}>
+                    <div class="slds-var-m-around_medium slds-grid first">
+                        <div class="slds-col">Topics</div>
+                        <div class="slds-col">Concepts </div>
+                    </div>
+                </template>
+                <div class="slds-var-m-around_medium slds-grid slds-border_top">
+                    <div class="slds-col slds-size_6-of-12 topics">{it.value.topics}</div>
+                    <div class="slds-col slds-size_6-of-12 Concepts">{it.value.Concepts} </div>
+                </div>
+                <template lwc:if={it.last}>
+                    <div class="slds-var-p-around_medium last">
+                        ©️Copyrights www.ajskilldevelopment.com
+                    </div>
+                </template> 
+            </div>
+        </template>
+    </lightning-card>
+</template>

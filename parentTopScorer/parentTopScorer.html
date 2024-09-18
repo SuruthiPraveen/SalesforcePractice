@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Player Details">
+        <div class="slds-var-p-around_medium">
+        <lightning-input label="Player Name" value={playerName} onchange={handleChange} variant="label-inline" ></lightning-input>
+        <lightning-input label="Score" value={score} onchange={handleChange} variant="label-inline"></lightning-input>
+        <lightning-input label="Team" value={team} onchange={handleChange} variant="label-inline"></lightning-input>
+    </div>
+    <div class="slds-var-p-around_medium slds-align_absolute-center">
+        <lightning-input type="checkbox" label="Add More" class="check" onchange={handleChange} ></lightning-input>
+        <template lwc:if={dispTopScorer}>
+            <lightning-button label="Top Scorer" onclick={handleTopScorer} class="slds-align_absolute-center" variant="brand"></lightning-button>
+        </template>     
+    </div>
+    <c-child-top-scorer topscore={topScore}></c-child-top-scorer>
+    </lightning-card>
+</template>

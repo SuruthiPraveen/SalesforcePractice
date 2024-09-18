@@ -1,0 +1,15 @@
+:host{
+    font-weight: bold;
+}
+.first{
+    background-color: rgb(234, 231, 231);
+}
+.topics{
+    color: red;
+}
+.Concepts{
+    color:blue;
+}
+.last{
+    color:aqua;
+}

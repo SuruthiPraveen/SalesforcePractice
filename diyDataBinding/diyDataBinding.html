@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Data binding in CSS">
+        <div class="slds-var-p-around_large">
+            <div class={choosenStyle} style="text-align: center;font-size: large;" >
+                AJ SKILL DEVELOPMENT
+            </div>
+            <lightning-input label="Enter Styling" onchange={handleChange}></lightning-input>
+            <lightning-button label="Apply Styling" variant="brand" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

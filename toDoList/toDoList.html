@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="To-Do Lists">
+        <div class="slds-var-p-around_medium">
+        <template lwc:if={displayToDos}>
+                <template for:each={toDoList} for:item="item">
+                    <div class="slds-var-p-around_medium slds-grid" key={item.id}>
+                        <div class="slds-var-p-around_medium slds-col whentask">
+                        {item.name}
+                    </div> 
+                        <div class="slds-var-p-around_medium slds-col whentask">
+                        <lightning-button-icon icon-name="utility:delete" value={item.id} variant="container" onclick={handleDeleteTask}></lightning-button-icon>
+                    </div> 
+                    </div>
+                </template>
+        </template>
+        <template lwc:else>
+            <div class="noTask">No To-Do Lists</div>
+        </template>
+    </div >
+    <div class="slds-var-m-around_medium slds-border_top">
+        <lightning-input class="slds-var-p-around_medium" label="Enter New task" onchange={handleChange} value={newTask}></lightning-input>
+        <lightning-button class="slds-var-p-around_medium" label="Add" onclick={handleClick} variant="brand"></lightning-button>
+    </div>
+    </lightning-card>
+</template> 

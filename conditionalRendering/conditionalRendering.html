@@ -1,0 +1,50 @@
+<template>
+
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-var-p-around_medium">
+            <b>Choose your interest</b>
+            <lightning-input  type="checkbox" label="Shopping" onclick={handleShoppingChange} class="shopCheck"></lightning-input>
+            <lightning-input  type="checkbox" label="Reading" onclick={handleReadingChange} class="readCheck"></lightning-input>
+        </div>
+        <div class="slds-box slds-var-m-around_medium" >
+            <template lwc:if={isShoppingChosen}>
+                <lightning-card title="Shopping Sites">
+                    <b>Shopping Sites</b>
+                    <ul>
+                        <li>
+                            <a href="https://www.amazon.com/">🛍️Amazon</a>
+                        </li>
+                        <li>
+                            <a href="https://www.flipkart.com/">🛍️Flipkart</a>
+                        </li>
+                        <li>
+                            <a href="https://www.snapdeal.com/">🛍️Snapdeal</a>
+                        </li>
+                    </ul>
+                </lightning-card>
+            </template>
+            <template lwc:elseif={isReadingChosen}>
+                <lightning-card title="Reading Sites">
+                    <b>Reading Sites</b>
+                    <ul>
+                        <li>
+                            <a href="https://www.amazon.com/">read</a>
+                        </li>
+                        <li>
+                            <a href="https://www.flipkart.com/">read</a>
+                        </li>
+                        <li>
+                            <a href="https://www.snapdeal.com/">read</a>
+                        </li>
+                    </ul>
+                </lightning-card>
+            </template>
+            <template lwc:else>
+                <div class="slds-var-p-around_medium">
+                    <b>Nothing Chosen</b>
+                </div>
+            </template>
+        </div>
+       
+    </lightning-card>
+</template>

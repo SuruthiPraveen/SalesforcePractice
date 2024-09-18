@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-var-p-around_medium">
+        <lightning-card title="My Course"> 
+            <div class="slds-var-p-around_medium">
+        FirstName:{firstName}<br>
+        LastName:{lastName}<br>
+        Email:{email}<br>
+        Days:{days}<br>
+        QA SLOTS:
+        Session:{QASLOT.Session}<br>
+        Duration:{QASLOT.Duration}<br>
+        {isApexChosen}<br>
+        {noOfWeeks}
+        </div>
+        <div class="slds-var-p-around_medium">
+            <lightning-input label="Enter the text" onchange={handleChange}></lightning-input>
+        </div>
+    </lightning-card>  
+    </div>
+</template>

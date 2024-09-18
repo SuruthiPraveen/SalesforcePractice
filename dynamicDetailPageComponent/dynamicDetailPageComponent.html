@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Dynamic Detail Page">
+        <template if:true={recordsArray}>
+            <div class="slds-var-p-around_medium">
+                <template for:each={recordsArray} for:item="record">
+                        <p key={record}>
+                            <strong>{record.field}: </strong>{record.value}
+                        </p>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>
